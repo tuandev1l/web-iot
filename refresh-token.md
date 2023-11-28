@@ -1,0 +1,10 @@
+- JWT = `${encodedHeader}.${encodedPayload}.${signature}`
+- JWT is base64, made up by three elements:
+  - encodedHeader: Buffer from (Json.stringify(header).toString(base64))
+    - header
+      - contains metadata: {alg:'sha256','typ':'JWT'}
+  - encodedPayload: Buffer from (Json.stringify(payload).toString(base64))
+    - payload: data that you may want to store in token
+      - payload: {sessonId:"1", email:"abc@gmail.com" }
+  - signature:
+    - combine header and payload
